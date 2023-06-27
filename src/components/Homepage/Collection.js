@@ -1,13 +1,13 @@
-import collection1 from "@/assets/collections/1collection.png";
-import collection2 from "@/assets/collections/2collection.png";
-import collection3 from "@/assets/collections/3collection.png";
-import collection4 from "@/assets/collections/4collection.png";
 import top1 from "@/assets/collections/top01.png";
 import top2 from "@/assets/collections/top02.png";
 import top3 from "@/assets/collections/top03.png";
 import top4 from "@/assets/collections/top04.png";
 import top5 from "@/assets/collections/top05.png";
 import manProfile from "@/assets/manprofile.png";
+import collection1 from "@/assets/slide6.png";
+import collection2 from "@/assets/slide7.png";
+import collection3 from "@/assets/slide8.png";
+import collection4 from "@/assets/slide9.png";
 import { poppins } from "@/utils/GoogleFonts";
 import { integral_cf } from "@/utils/LocalFonts";
 import Image from "next/image";
