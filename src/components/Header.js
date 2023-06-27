@@ -1,6 +1,6 @@
 import { integral_cf } from "@/utils/LocalFonts";
 import Link from "next/link";
-import PrimaryButton from "./PrimaryButton";
+import PrimaryButton from "./custom/PrimaryButton";
 
 const Header = () => {
   return (

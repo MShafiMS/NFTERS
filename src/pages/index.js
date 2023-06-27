@@ -1,4 +1,5 @@
 import AmazeNFT from "@/components/Homepage/AmazeNFT";
+import Collection from "@/components/Homepage/Collection";
 import Hero from "@/components/Homepage/Hero";
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
     <main>
       <Hero />
       <AmazeNFT />
+      <Collection />
     </main>
   );
 };

@@ -1,6 +1,6 @@
 import { integral_cf } from "@/utils/LocalFonts";
 import NumberCountAnimation from "@/utils/NumberCount";
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../custom/PrimaryButton";
 import HeroSlides from "./HeroSlides";
 
 const Hero = () => {

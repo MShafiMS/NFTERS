@@ -8,7 +8,8 @@ import { EffectCards } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CustomCursor from "../CustorCursor";
+import CustomCursor from "../custom/CustomCursor";
+import PrimaryPrice from "../custom/PrimaryPrice";
 
 const HeroSlides = () => {
   const [isHover, setIsHover] = useState(false);
@@ -20,7 +21,7 @@ const HeroSlides = () => {
   ];
   return (
     <div
-    id="heroslides"
+      id="heroslides"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className="w-5/12 relative custom-cursor"
@@ -66,37 +67,11 @@ const HeroSlides = () => {
                 </div>
                 <div className="bg-[rgba(255,255,255,0.20)] text-white px-6 py-4 flex justify-between items-center rounded-xl h-20 backdrop-blur-xl w-[348px]">
                   <div>
-                    <p className="text-xs font-medium">Current Bid</p>
-                    <div className="flex gap-2.5 mt-1.5 items-center">
-                      <svg
-                        width="13"
-                        height="22"
-                        viewBox="0 0 13 22"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clip-path="url(#clip0_0_143)">
-                          <path
-                            d="M12.671 11.3796L6.50006 15.2463L0.325058 11.3796L6.50006 0.512939L12.671 11.3796ZM6.50006 16.4879L0.325058 12.6213L6.50006 21.8463L12.6751 12.6213L6.50006 16.4879Z"
-                            fill="white"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_0_143">
-                            <rect
-                              width="13"
-                              height="21.3333"
-                              fill="white"
-                              transform="translate(0 0.512939)"
-                            />
-                          </clipPath>
-                        </defs>
-                      </svg>
-                      <p className="font-bold tracking-wider">0.25 ETH</p>
-                    </div>
+                    <p className="text-xs font-medium mb-1.5">Current Bid</p>
+                    <PrimaryPrice color="#fff" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium">Ends in</p>
+                    <p className="text-xs font-medium mb-1.5">Ends in</p>
                     <p className="tracking-wider">
                       <span className="font-bold">12</span>h{" "}
                       <span className="font-bold">43</span>m{" "}
