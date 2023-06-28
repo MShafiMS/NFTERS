@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const PrimaryButton = ({ name, text, h, w, radius, reverse }) => {
+const PrimaryButton = ({ name, text, h, w, radius, reverse, className }) => {
   const [isHover, setIsHover] = useState(false);
   if (reverse) {
     return (
       <button
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative"
+        className={`relative ${className}`}
         style={{
           width: `${w}px`,
           height: `${h}px`,
@@ -39,7 +39,7 @@ const PrimaryButton = ({ name, text, h, w, radius, reverse }) => {
       <button
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className="relative"
+        className={`relative ${className}`}
         style={{
           width: `${w}px`,
           height: `${h}px`,

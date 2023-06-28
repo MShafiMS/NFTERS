@@ -7,9 +7,11 @@ import yellow from "@/assets/slide2.png";
 import red from "@/assets/slide3.png";
 import white from "@/assets/slide6.png";
 import { integral_cf } from "@/utils/LocalFonts";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 import { useState } from "react";
-import PrimaryButton from "../custom/PrimaryButton";
-import PrimaryPrice from "../custom/PrimaryPrice";
+const PrimaryButton = dynamic(() => import("../custom/PrimaryButton"));
+const PrimaryPrice = dynamic(() => import("../custom/PrimaryPrice"));
 
 const Discover = () => {
   const [category, setCategory] = useState("All Categories");
@@ -45,12 +47,14 @@ const Discover = () => {
   const filteredNfts = nfts.filter((nft) => nft.category === category);
   return (
     <div className="bg-[#D9E0EC33]">
-      <div className="container mx-auto pt-16 mb-12">
-        <h1 className={`${integral_cf.className} text-4xl font-bold`}>
+      <div className="container lg:w-full w-11/12 mx-auto pt-16 mb-12">
+        <h1
+          className={`${integral_cf.className} text-2xl lg:text-4xl font-bold`}
+        >
           Discover more NFTs
         </h1>
-        <div className="flex itms-center justify-between">
-          <div className="flex gap-3 items-center mt-9 mb-10">
+        <div className="flex itms-center justify-between lg:mt-9 my-6 lg:mb-10">
+          <div className="lg:flex hidden gap-3 items-center">
             {categories.map((item, idx) => (
               <button
                 onClick={() => setCategory(item)}
@@ -58,25 +62,66 @@ const Discover = () => {
                 className={`px-5 py-2.5 text-sm font-medium rounded-3xl ${
                   category === item
                     ? "bg-primary text-white"
-                    : "bg-[#DCDCDC]/20 hover:bg-primary/30"
+                    : "bg-[#DCDCDC]/20 hover:bg-primary/10"
                 }`}
               >
                 {item}
               </button>
             ))}
           </div>
+          <select
+            name="category"
+            id=""
+            onChange={(e) => setCategory(e.target.value)}
+            className="px-5 py-2.5 lg:hidden text-sm font-medium rounded-3xl focus:bg-[#DCDCDC]/20 bg-primary text-white text-center focus:text-primary appearance-none focus:outline-primary"
+          >
+            {categories.map((item, idx) => (
+              <option
+                value={item}
+                key={idx}
+                className={`font-medium text-sm px-5 py-2.5 ${
+                  category === item
+                    ? "text-black"
+                    : "text-primary bg-[#DCDCDC]/20"
+                }`}
+              >
+                {item}
+              </option>
+            ))}
+          </select>
+          <button className="px-5 py-2.5 text-sm font-medium rounded-3xl bg-[#DCDCDC]/20 hover:bg-primary hover:text-white hover:fill-white fill-primary text-primary flex items-center gap-2.5">
+            <svg
+              viewBox="0 0 24 24"
+              className="w-4 h-4"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clip-path="url(#clip0_0_399)">
+                <path d="M9.33333 20H14.6667V17.3333H9.33333V20ZM0 4V6.66667H24V4H0ZM4 13.3333H20V10.6667H4V13.3333Z" />
+              </g>
+              <defs>
+                <clipPath id="clip0_0_399">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+            All Filters
+          </button>
         </div>
-        <div className="grid grid-cols-4 gap-10">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center gap-6 lg:gap-10">
           {(filteredNfts.length ? filteredNfts : nfts).map((item, idx) => (
             <div key={idx} className="bg-white p-3 rounded-[13px] w-fit">
-              <img
+              <Image
+                width={248}
+                height={222}
                 src={item.img.src}
                 className="w-[248px] h-[222px] object-cover object-center rounded-[13px]"
                 alt=""
               />
               <div className="relative -top-5 left-3 h-fit w-12  flex">
                 {users.map((user, idx) => (
-                  <img
+                  <Image
+                    width={30}
+                    height={30}
                     key={idx}
                     src={user.src}
                     className="absolute w-9 h-9 border-2 border-white rounded-full"
@@ -110,8 +155,11 @@ const Discover = () => {
             </div>
           ))}
         </div>
-        <div className="flex justify-center mt-14">
+        <div className="lg:flex hidden justify-center mt-14">
           <PrimaryButton name="More NFTs" w="179" h="66" text="20" reverse />
+        </div>
+        <div className="flex lg:hidden justify-center mt-8">
+          <PrimaryButton name="More NFTs" w="150" h="50" text="18" reverse />
         </div>
       </div>
     </div>

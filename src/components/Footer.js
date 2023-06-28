@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="container mx-auto">
-      <div className="mt-20 mb-16 flex gap-24">
+    <div className="container mx-auto lg:w-full w-11/12">
+      <div className="mt-20 mb-16 flex lg:flex-row flex-col gap-14 lg:gap-24">
         <div className="w-fit">
           <h1 className={`text-2xl ${integral_cf.className} font-bold`}>
             NFters
@@ -23,7 +23,7 @@ const Footer = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_0_413)">
+                <g clipPath="url(#clip0_0_413)">
                   <path
                     d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05888 27.9411 0 18 0C8.05888 0 0 8.05888 0 18C0 27.9411 8.05888 36 18 36Z"
                     fill="#3B5998"
@@ -48,7 +48,7 @@ const Footer = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_0_417)">
+                <g clipPath="url(#clip0_0_417)">
                   <path
                     d="M18.0002 35.9997C27.9412 35.9997 36 27.9409 36 17.9998C36 8.0588 27.9412 0 18.0002 0C8.05917 0 0.000366211 8.0588 0.000366211 17.9998C0.000366211 27.9409 8.05917 35.9997 18.0002 35.9997Z"
                     fill="#55ACEE"
@@ -73,7 +73,7 @@ const Footer = () => {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_0_422)">
+                <g clipPath="url(#clip0_0_422)">
                   <path
                     d="M18 35.9998C27.9411 35.9998 36 27.9409 36 17.9998C36 8.05863 27.9411 -0.000244141 18 -0.000244141C8.05884 -0.000244141 -3.05176e-05 8.05863 -3.05176e-05 17.9998C-3.05176e-05 27.9409 8.05884 35.9998 18 35.9998Z"
                     fill="#007AB9"
@@ -92,48 +92,50 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-        <div className="w-fit">
-          <p className="text-lg font-bold">Market Place</p>
-          <ul className="mt-6 text-sm text-[#3D3D3D] font-medium flex flex-col gap-3">
-            <li>
-              <Link href="">All NFTs</Link>
-            </li>
-            <li>
-              <Link href="">New</Link>
-            </li>
-            <li>
-              <Link href="">Art</Link>
-            </li>
-            <li>
-              <Link href="">Sports</Link>
-            </li>
-            <li>
-              <Link href="">Utility</Link>
-            </li>
-            <li>
-              <Link href="">Music</Link>
-            </li>
-            <li>
-              <Link href="">Domain Name</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="w-fit">
-          <p className="text-lg font-bold">My Account</p>
-          <ul className="mt-6 text-sm text-[#3D3D3D] font-medium flex flex-col gap-3">
-            <li>
-              <Link href="">Profile</Link>
-            </li>
-            <li>
-              <Link href="">Favorite</Link>
-            </li>
-            <li>
-              <Link href="">My Collections</Link>
-            </li>
-            <li>
-              <Link href="">Settings</Link>
-            </li>
-          </ul>
+        <div className="flex gap-14 lg:gap-24">
+          <div className="w-fit">
+            <p className="text-lg font-bold">Market Place</p>
+            <ul className="mt-6 text-sm text-[#3D3D3D] font-medium flex flex-col gap-3">
+              <li>
+                <Link href="">All NFTs</Link>
+              </li>
+              <li>
+                <Link href="">New</Link>
+              </li>
+              <li>
+                <Link href="">Art</Link>
+              </li>
+              <li>
+                <Link href="">Sports</Link>
+              </li>
+              <li>
+                <Link href="">Utility</Link>
+              </li>
+              <li>
+                <Link href="">Music</Link>
+              </li>
+              <li>
+                <Link href="">Domain Name</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="w-fit">
+            <p className="text-lg font-bold">My Account</p>
+            <ul className="mt-6 text-sm text-[#3D3D3D] font-medium flex flex-col gap-3">
+              <li>
+                <Link href="">Profile</Link>
+              </li>
+              <li>
+                <Link href="">Favorite</Link>
+              </li>
+              <li>
+                <Link href="">My Collections</Link>
+              </li>
+              <li>
+                <Link href="">Settings</Link>
+              </li>
+            </ul>
+          </div>
         </div>
         <div className="w-fit">
           <p className="text-lg font-bold">Stay in the loop</p>
@@ -147,7 +149,7 @@ const Footer = () => {
               placeholder="Enter your email address.."
               className="outline-none ml-6 placeholder:text-[#959595] text-xs w-full"
             />
-            <button className="text-xs text-white w-40 h-12 bg-blue rounded-3xl">
+            <button className="text-xs text-white w-40 h-7 lg:h-12 bg-blue rounded-3xl">
               Subscibe Now
             </button>
           </div>

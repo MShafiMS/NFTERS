@@ -2,13 +2,13 @@ import { integral_cf } from "@/utils/LocalFonts";
 
 const AmazeNFT = () => {
   return (
-    <div className="py-32 bg-[#D9E0EC]/20">
-      <div className="flex justify-between container mx-auto">
-        <h1 className={`${integral_cf.className} font-bold text-3xl tracking-wider`}>
+    <div className="lg:py-32 py-16 bg-[#D9E0EC]/20">
+      <div className="flex md:flex-row flex-col items-center gap-10 lg:justify-between container mx-auto">
+        <h1 className={`${integral_cf.className} font-bold text-center lg:text-start text-2xl lg:text-3xl tracking-wider`}>
           The amazing NFT art <br />
           of the world here
         </h1>
-        <div className="flex gap-14">
+        <div className="flex lg:flex-row flex-col gap-6 lg:gap-14">
           <div className="flex gap-3.5">
             <svg
               width="36"

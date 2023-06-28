@@ -4,55 +4,70 @@ import img3 from "@/assets/slide2.png";
 import img2 from "@/assets/slide3.png";
 import wman from "@/assets/wman.png";
 import { integral_cf } from "@/utils/LocalFonts";
-import PrimaryButton from "../custom/PrimaryButton";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+const PrimaryButton = dynamic(() => import("../custom/PrimaryButton"));
+
 const SignUpNFT = () => {
   return (
-    <div className="flex items-center container gap-20 mx-auto mt-24 mb-28">
-      <div className="w-full flex items-center gap-16">
-        <div className="flex gap-14 flex-col items-end">
+    <div className="flex lg:flex-row md:flex-row flex-col-reverse items-center lg:w-full w-11/12 container gap-20 mx-auto mt-24 mb-28">
+      <div className="w-full flex items-center gap-8 lg:gap-16">
+        <div className="flex lg:gap-14 gap-10 flex-col items-end">
           <div className="relative">
-            <img
+            <Image
+              width={300}
+              height={300}
               src={img1.src}
-              className="w-[300px] h-[300px] rounded-[12px]"
+              className="lg:w-[300px] lg:h-[300px] w-40 h-40 rounded-[12px]"
               alt=""
             />
-            <img
+            <Image
+              width={80}
+              height={80}
               src={man.src}
-              className="absolute -right-7 -bottom-8 w-[80px] h-[80px] border-[4px] border-white rounded-full"
+              className="absolute -right-7 -bottom-8 lg:w-[80px] lg:h-[80px] w-16 h-16 border-[4px] border-white rounded-full"
               alt=""
             />
           </div>
           <div className="relative">
-            <img
+            <Image
+              width={195}
+              height={214}
               src={img2.src}
-              className="w-[195px] h-[214px] rounded-[12px]"
+              className="lg:w-[195px] lg:h-[214px] w-28 h-28 rounded-[12px]"
               alt=""
             />
-            <img
+            <Image
+              width={80}
+              height={80}
               src={wman.src}
-              className="absolute -right-7 -bottom-8 w-[80px] h-[80px] border-[4px] border-white rounded-full"
+              className="absolute -right-7 -bottom-8 lg:w-[80px] lg:h-[80px] w-16 h-16 border-[4px] border-white rounded-full"
               alt=""
             />
           </div>
         </div>
         <div className="relative">
-          <img
+          <Image
+            width={240}
+            height={256}
             src={img3.src}
-            className="w-[240px] h-[265px] rounded-[12px]"
+            className="lg:w-[240px] lg:h-[265px] w-32 h-32 rounded-[12px]"
             alt=""
           />
-          <img
+          <Image
+            width={80}
+            height={80}
             src={wman.src}
-            className="absolute -right-7 -bottom-8 w-[80px] h-[80px] border-[4px] border-white rounded-full"
+            className="absolute -right-7 -bottom-8 lg:w-[80px] lg:h-[80px] w-16 h-16 border-[4px] border-white rounded-full"
             alt=""
           />
         </div>
       </div>
       <div className="w-full">
-        <h1 className={`${integral_cf.className} font-bold text-3xl`}>
-          Create and <br /> sell your NFTs
+        <h1 className={`${integral_cf.className} font-bold text-xl lg:text-3xl`}>
+          Create and <br className="lg:block hidden" /> sell your NFTs
         </h1>
-        <p className="mt-10 mb-8 text-[#636363] text-lg max-w-lg">
+        <p className="lg:mt-10 lg:mb-8 my-5 text-[#636363] lg:text-lg max-w-lg">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi ac
           phasellus placerat a pellentesque tellus sed egestas. Et tristique
           dictum sit tristique sed non. Lacinia lorem id consectetur pretium

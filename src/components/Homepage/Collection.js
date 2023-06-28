@@ -3,7 +3,7 @@ import top2 from "@/assets/collections/top02.png";
 import top3 from "@/assets/collections/top03.png";
 import top4 from "@/assets/collections/top04.png";
 import top5 from "@/assets/collections/top05.png";
-import manProfile from "@/assets/manprofile.png";
+import manProfile from "@/assets/man.png";
 import collection1 from "@/assets/slide6.png";
 import collection2 from "@/assets/slide7.png";
 import collection3 from "@/assets/slide8.png";
@@ -58,19 +58,26 @@ const Collection = () => {
     },
   ];
   const collections = [
+    { img: collection1 },
     { img: collection2 },
     { img: collection3 },
     { img: collection4 },
   ];
   return (
-    <div className="container mx-auto flex mt-28 mb-32">
-      <div className="w-full mr-12">
-        <Image src={collection1} width={400} height={424} />
-        <div className="flex justify-between mt-8 max-w-[400px]">
+    <div className="container mx-auto lg:w-full w-11/12 flex md:flex-row flex-col gap-14 lg:gap-0 mt-14 lg:mt-28 lg:mb-32 mb-16">
+      <div className="w-full lg:mr-12 md:hidden lg:block">
+        <Image
+          src={collection1}
+          width={400}
+          height={424}
+          className="lg:w-[400px] w-80 mx-auto"
+          alt="clc"
+        />
+        <div className="flex justify-between mx-auto mt-8 w-80 lg:w-[400px]">
           <div className="flex">
-            <Image src={manProfile} height={48} width={48} />
+            <Image src={manProfile} height={48} width={48} className="w-12 h-12" alt="clc" />
             <div>
-              <p className="font-bold text-xl">The Futr Abstr</p>
+              <p className="font-bold lg:text-xl">The Futr Abstr</p>
               <p className="text-sm text-[#363639]">10 in the stock</p>
             </div>
           </div>
@@ -80,15 +87,24 @@ const Collection = () => {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col gap-10 mr-12">
+      <div className="w-full flex flex-col items-center gap-10 lg:mr-12">
         {collections.map((collection, idx) => (
-          <div key={idx} className="flex items-center gap-5">
-            <Image src={collection.img} width={147} height={147} />
+          <div
+            key={idx}
+            className={`flex items-center gap-5 ${idx === 0 && "lg:hidden hidden md:flex"}`}
+          >
+            <Image
+              src={collection.img}
+              width={147}
+              height={147}
+              className="lg:w-[147px] lg:h-[147px] w-28 h-28"
+              alt="clc"
+            />
             <div>
-              <h4 className="text-xl font-bold">The Futr Abstr</h4>
+              <h4 className="lg:text-xl font-bold">The Futr Abstr</h4>
               <div className="flex items-center gap-2 mt-2 mb-4">
-                <Image src={manProfile} width={34} height={34} />
-                <div className="p-2 border border-[#00AC4F] rounded-[6px]">
+                <Image src={manProfile} width={34} height={34} alt="clc" />
+                <div className="lg:p-2 p-1.5 lg:text-md text-sm border border-[#00AC4F] rounded-[6px]">
                   <PrimaryPrice color="#00AC4F" />
                 </div>
                 <p className="text-sm text-[#757575]">1 of 8</p>
@@ -98,7 +114,7 @@ const Collection = () => {
           </div>
         ))}
       </div>
-      <div className="w-full pl-9 border-l border-[#ECECEC]">
+      <div className="w-full lg:pl-9 lg:border-l border-[#ECECEC]">
         <h2 className={`${integral_cf.className} text-xl font-bold`}>
           Top Collections over
         </h2>
@@ -113,7 +129,7 @@ const Collection = () => {
             >
               <p className="font-bold text-2xl">{idx + 1}</p>
               <div className="relative">
-                <Image src={collection.img} width={60} height={60} />
+                <Image src={collection.img} width={60} height={60} alt="clc" />
                 {collection.verified && (
                   <svg
                     width="32"
@@ -141,7 +157,7 @@ const Collection = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g clip-path="url(#clip0_0_267)">
+                    <g clipPath="url(#clip0_0_267)">
                       <path
                         d="M14.6203 12.225L7.49994 16.575L0.374939 12.225L7.49994 0L14.6203 12.225ZM7.49994 17.9719L0.374939 13.6219L7.49994 24L14.6249 13.6219L7.49994 17.9719V17.9719Z"
                         fill="black"

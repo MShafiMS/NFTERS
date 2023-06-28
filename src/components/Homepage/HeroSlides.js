@@ -1,15 +1,16 @@
-import man from "@/assets/manprofile.png";
+import man from "@/assets/man.png";
 import slide1 from "@/assets/slide1.png";
 import slide2 from "@/assets/slide2.png";
 import slide3 from "@/assets/slide3.png";
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
 import { EffectCards } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { Swiper, SwiperSlide } from "swiper/react";
-import CustomCursor from "../custom/CustomCursor";
-import PrimaryPrice from "../custom/PrimaryPrice";
+const CustomCursor = dynamic(() => import("../custom/CustomCursor"));
+const PrimaryPrice = dynamic(() => import("../custom/PrimaryPrice"));
 
 const HeroSlides = () => {
   const [isHover, setIsHover] = useState(false);
@@ -24,7 +25,7 @@ const HeroSlides = () => {
       id="heroslides"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
-      className="w-5/12 relative custom-cursor"
+      className="lg:w-5/12 w-11/12 mx-auto lg:mx-0 relative custom-cursor"
     >
       <CustomCursor show={isHover} />
       <Swiper
@@ -43,35 +44,41 @@ const HeroSlides = () => {
         //   slideShadows: false,
         // }}
         modules={[EffectCards]}
-        className="mySwiper"
+        className="mySwiper w-80 lg:w-full"
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>
-            <div className="rounded-[24px] relative">
+            <div className="rounded-[24px] relative lg:w-[400px] w-72">
               <Image
                 src={slide.img}
                 width={400}
                 height={440}
                 alt="Slide"
-                className={`${idx === 2 && " rotate-180"}`}
+                className={`${
+                  idx === 2 && " rotate-180"
+                } w-72 h-80 lg:w-[400px] lg:h-[440px]`}
               />
-              <div className="absolute flex flex-col justify-between top-0 text-white p-6 left-0 w-full h-full">
+              <div className="absolute flex flex-col justify-between top-0 text-white px-3 py-4 lg:p-6 left-0 w-full h-full">
                 <div>
-                  <h4 className="text-3xl font-bold tracking-tighter drop-shadow">
+                  <h4 className="lg:text-3xl text-xl font-bold tracking-tighter drop-shadow">
                     Abstr Gradient NFT
                   </h4>
                   <div className="flex items-center gap-3 mt-2">
-                    <Image src={man.src} width={32} height={32} />
-                    <p className="text-xl font-bold">Arkhan17</p>
+                    <Image src={man.src} width={32} height={32} alt="man" />
+                    <p className="lg:text-xl font-bold">Arkhan17</p>
                   </div>
                 </div>
-                <div className="bg-[rgba(255,255,255,0.20)] text-white px-6 py-4 flex justify-between items-center rounded-xl h-20 backdrop-blur-xl w-[348px]">
+                <div className="bg-[rgba(255,255,255,0.20)] text-white px-3 py-2 lg:px-6 lg:py-4 flex justify-between lg:text-md text-xs items-center rounded-xl h-20 backdrop-blur-xl w-full">
                   <div>
-                    <p className="text-xs font-medium mb-1.5">Current Bid</p>
+                    <p className="lg:text-xs text-[10px] font-medium mb-1.5">
+                      Current Bid
+                    </p>
                     <PrimaryPrice color="#fff" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium mb-1.5">Ends in</p>
+                    <p className="lg:text-xs text-[10px] font-medium mb-1.5">
+                      Ends in
+                    </p>
                     <p className="tracking-wider">
                       <span className="font-bold">12</span>h{" "}
                       <span className="font-bold">43</span>m{" "}
