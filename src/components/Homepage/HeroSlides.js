@@ -15,6 +15,7 @@ const PrimaryPrice = dynamic(() => import("../custom/PrimaryPrice"));
 
 const HeroSlides = () => {
   const [isHover, setIsHover] = useState(false);
+  const [navId, setNavId] = useState(null);
 
   const slides = [
     { img: slide1.src },
@@ -28,7 +29,7 @@ const HeroSlides = () => {
       onMouseLeave={() => setIsHover(false)}
       className="lg:w-5/12 w-11/12 mx-auto lg:mx-0 relative custom-cursor"
     >
-      <CustomCursor show={isHover} />
+      <CustomCursor show={isHover} navId={navId} />
       <Swiper
         effect={"cards"}
         grabCursor
@@ -48,7 +49,7 @@ const HeroSlides = () => {
         className="mySwiper w-80 lg:w-full"
       >
         {slides.map((slide, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide key={idx} onMouseEnter={() => setNavId(idx)}>
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               viewport={{ once: true }}
