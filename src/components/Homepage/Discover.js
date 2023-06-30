@@ -136,8 +136,11 @@ const Discover = () => {
                   delay: Math.max(0, 0.3 + (idx * 2) / 10),
                 },
               }}
+              whileHover={{
+                scale: 1.03,
+              }}
               key={idx}
-              className="bg-white p-3 rounded-[13px] w-fit"
+              className="bg-white p-3 rounded-[13px] w-fit hover:shadow-xl shadow-lg"
             >
               <Image
                 width={248}
