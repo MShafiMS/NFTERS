@@ -1,10 +1,23 @@
 import { integral_cf } from "@/utils/LocalFonts";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
 const Footer = () => {
   return (
     <div className="container mx-auto lg:w-full w-11/12">
-      <div className="mt-20 mb-16 flex lg:flex-row flex-col gap-14 lg:gap-24">
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        viewport={{ once: true }}
+        whileInView={{
+          y: 0,
+          opacity: 100,
+          transition: {
+            duration: 0.9,
+            delay: 0.1,
+          },
+        }}
+        className="mt-20 mb-16 flex lg:flex-row flex-col gap-14 lg:gap-24"
+      >
         <div className="w-fit">
           <h1 className={`text-2xl ${integral_cf.className} font-bold`}>
             NFters
@@ -154,7 +167,7 @@ const Footer = () => {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="border-t border-[#F4F4F4] pt-4 pb-6">
         <p className="text-center text-sm text-[#A4A4A4] leading-[160%]">
           Copyright © 2022 Avi Yansah

@@ -9,6 +9,7 @@ import img8 from "@/assets/slide7.png";
 import img7 from "@/assets/slide8.png";
 import img9 from "@/assets/slide9.png";
 import { integral_cf } from "@/utils/LocalFonts";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 const PrimaryButton = dynamic(() => import("../custom/PrimaryButton"));
@@ -31,12 +32,36 @@ const Featured = () => {
   return (
     <div className="bg-[#D9E0EC]/20">
       <div className="container mx-auto lg:w-full w-11/12 lg:pt-16 py-9 lg:py-0 lg:pb-24">
-        <h1 className={`${integral_cf.className} text-xl lg:text-3xl font-bold`}>
+        <motion.h1
+          initial={{ x: 100, opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{
+            x: 0,
+            opacity: 100,
+            transition: { duration: 0.9, delay: 0.1 },
+          }}
+          className={`${integral_cf.className} text-xl lg:text-3xl font-bold`}
+        >
           Collection Featured NFTs
-        </h1>
+        </motion.h1>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mt-8 lg:mt-14">
           {collections.map((collection, idx) => (
-            <div key={idx + 1} className={`w-full ${idx === 2 && "lg:col-span-1 md:col-span-2 justify-center flex"}`}>
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              viewport={{ once: true }}
+              whileInView={{
+                x: 0,
+                opacity: 100,
+                transition: {
+                  duration: 0.9,
+                  delay: Math.max(0, 0.1 + (idx * 4) / 10),
+                },
+              }}
+              key={idx + 1}
+              className={`w-full ${
+                idx === 2 && "lg:col-span-1 md:col-span-2 justify-center flex"
+              }`}
+            >
               <div className="w-fit">
                 <div className="flex items-center gap-2.5">
                   <div>
@@ -84,7 +109,7 @@ const Featured = () => {
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

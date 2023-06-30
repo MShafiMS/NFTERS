@@ -10,6 +10,8 @@ import collection3 from "@/assets/slide8.png";
 import collection4 from "@/assets/slide9.png";
 import { poppins } from "@/utils/GoogleFonts";
 import { integral_cf } from "@/utils/LocalFonts";
+import NumberCountAnimation from "@/utils/NumberCount";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import PrimaryButton from "../custom/PrimaryButton";
 import PrimaryPrice from "../custom/PrimaryPrice";
@@ -18,41 +20,41 @@ const Collection = () => {
   const topCollectins = [
     {
       name: "CryptoFunks",
-      price: "19,769.39",
+      price: 19769.39,
       img: top1,
-      parcentage: "+26.52%",
+      parcentage: 26.52,
       verified: true,
       redpr: false,
     },
     {
       name: "Cryptix",
-      price: "2,769.39",
+      price: 2769.39,
       img: top2,
-      parcentage: "+10.52%",
+      parcentage: 10.52,
       verified: false,
       redpr: true,
     },
     {
       name: "Frensware",
-      price: "9,232.39",
+      price: 9232.39,
       img: top3,
-      parcentage: "+2.52%",
+      parcentage: 2.52,
       verified: false,
       redpr: false,
     },
     {
       name: "PunkArt",
-      price: "3,769.39",
+      price: 3769.39,
       img: top4,
-      parcentage: "+1.52%",
+      parcentage: 1.52,
       verified: true,
       redpr: false,
     },
     {
       name: "Art Crypto",
-      price: "10,769.39",
+      price: 10769.39,
       img: top5,
-      parcentage: "+2.52%",
+      parcentage: 2.52,
       verified: false,
       redpr: true,
     },
@@ -65,7 +67,16 @@ const Collection = () => {
   ];
   return (
     <div className="container mx-auto lg:w-full w-11/12 flex md:flex-row flex-col gap-14 lg:gap-0 mt-14 lg:mt-28 lg:mb-32 mb-16">
-      <div className="w-full lg:mr-12 md:hidden lg:block">
+      <motion.div
+        initial={{ x: -100, opacity: 0 }}
+        viewport={{ once: true }}
+        whileInView={{
+          x: 0,
+          opacity: 100,
+          transition: { duration: 0.9, delay: 0.1 },
+        }}
+        className="w-full lg:mr-12 md:hidden lg:block"
+      >
         <Image
           src={collection1}
           width={400}
@@ -75,7 +86,13 @@ const Collection = () => {
         />
         <div className="flex justify-between mx-auto mt-8 w-80 lg:w-[400px]">
           <div className="flex">
-            <Image src={manProfile} height={48} width={48} className="w-12 h-12" alt="clc" />
+            <Image
+              src={manProfile}
+              height={48}
+              width={48}
+              className="w-12 h-12"
+              alt="clc"
+            />
             <div>
               <p className="font-bold lg:text-xl">The Futr Abstr</p>
               <p className="text-sm text-[#363639]">10 in the stock</p>
@@ -86,12 +103,23 @@ const Collection = () => {
             <PrimaryPrice color="#3A3A3A" />
           </div>
         </div>
-      </div>
+      </motion.div>
       <div className="w-full flex flex-col items-center gap-10 lg:mr-12">
         {collections.map((collection, idx) => (
-          <div
+          <motion.div
+            initial={{ opacity: 0 }}
+            viewport={{ once: true }}
+            whileInView={{
+              opacity: 100,
+              transition: {
+                duration: 0.9,
+                delay: Math.max(0, 0.2 + (idx * 3) / 10),
+              },
+            }}
             key={idx}
-            className={`flex items-center gap-5 ${idx === 0 && "lg:hidden hidden md:flex"}`}
+            className={`flex items-center gap-5 ${
+              idx === 0 && "lg:hidden hidden md:flex"
+            }`}
           >
             <Image
               src={collection.img}
@@ -111,17 +139,38 @@ const Collection = () => {
               </div>
               <PrimaryButton name="Place a bid" w="113" h="45" reverse />
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-      <div className="w-full lg:pl-9 lg:border-l border-[#ECECEC]">
+      <motion.div
+        initial={{ x: 100, opacity: 0 }}
+        viewport={{ once: true }}
+        whileInView={{
+          x: 0,
+          opacity: 100,
+          transition: {
+            duration: 0.9,
+            delay: 0.1,
+          },
+        }}
+        className="w-full lg:pl-9 lg:border-l border-[#ECECEC]"
+      >
         <h2 className={`${integral_cf.className} text-xl font-bold`}>
           Top Collections over
         </h2>
         <p className="text-lg text-primary font-bold mt-2.5">Last 7 days</p>
         <div className="mt-5">
           {topCollectins.map((collection, idx) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0 }}
+              viewport={{ once: true }}
+              whileInView={{
+                opacity: 100,
+                transition: {
+                  duration: 0.9,
+                  delay: Math.max(0, 0.2 + (idx * 3) / 10),
+                },
+              }}
               key={idx}
               className={`flex items-center gap-5 py-4 ${
                 idx !== 0 && "border-t border-[#F0F0F0]"
@@ -181,12 +230,17 @@ const Collection = () => {
                   collection.redpr ? "text-[#FF002E]" : "text-[#14C8B0]"
                 }`}
               >
-                {collection.parcentage}
+                +{" "}
+                <NumberCountAnimation
+                  targetCount={collection.parcentage}
+                  duration={3000}
+                />{" "}
+                %
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

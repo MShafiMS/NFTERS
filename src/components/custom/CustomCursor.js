@@ -23,7 +23,7 @@ const CustomCursor = ({ show }) => {
   if (show) {
     return (
       <div
-        className="fixed top-[-10%] left-[-5%] z-50 w-[138px] h-[138px] rounded-full pointer-events-none lg:block hidden"
+        className="fixed top-[-8%] left-[-5%] z-50 w-[138px] h-[138px] rounded-full pointer-events-none lg:block hidden"
         style={{
           transform: `translate(${position.x}px, ${position.y}px)`,
         }}

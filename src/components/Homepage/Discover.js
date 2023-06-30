@@ -7,6 +7,7 @@ import yellow from "@/assets/slide2.png";
 import red from "@/assets/slide3.png";
 import white from "@/assets/slide6.png";
 import { integral_cf } from "@/utils/LocalFonts";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
@@ -48,12 +49,28 @@ const Discover = () => {
   return (
     <div className="bg-[#D9E0EC33]">
       <div className="container lg:w-full w-11/12 mx-auto pt-16 mb-12">
-        <h1
+        <motion.h1
+          initial={{ x: 100, opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{
+            x: 0,
+            opacity: 100,
+            transition: { duration: 0.9, delay: 0.1 },
+          }}
           className={`${integral_cf.className} text-2xl lg:text-4xl font-bold`}
         >
           Discover more NFTs
-        </h1>
-        <div className="flex itms-center justify-between lg:mt-9 my-6 lg:mb-10">
+        </motion.h1>
+        <motion.div
+          initial={{ y: -30, opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{
+            y: 0,
+            opacity: 100,
+            transition: { duration: 0.9, delay: 0.2 },
+          }}
+          className="flex itms-center justify-between lg:mt-9 my-6 lg:mb-10"
+        >
           <div className="lg:flex hidden gap-3 items-center">
             {categories.map((item, idx) => (
               <button
@@ -95,7 +112,7 @@ const Discover = () => {
               className="w-4 h-4"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g clip-path="url(#clip0_0_399)">
+              <g clipPath="url(#clip0_0_399)">
                 <path d="M9.33333 20H14.6667V17.3333H9.33333V20ZM0 4V6.66667H24V4H0ZM4 13.3333H20V10.6667H4V13.3333Z" />
               </g>
               <defs>
@@ -106,10 +123,22 @@ const Discover = () => {
             </svg>
             All Filters
           </button>
-        </div>
+        </motion.div>
         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 justify-items-center gap-6 lg:gap-10">
           {(filteredNfts.length ? filteredNfts : nfts).map((item, idx) => (
-            <div key={idx} className="bg-white p-3 rounded-[13px] w-fit">
+            <motion.div
+              initial={{ opacity: 0 }}
+              viewport={{ once: true }}
+              whileInView={{
+                opacity: 100,
+                transition: {
+                  duration: 0.9,
+                  delay: Math.max(0, 0.3 + (idx * 2) / 10),
+                },
+              }}
+              key={idx}
+              className="bg-white p-3 rounded-[13px] w-fit"
+            >
               <Image
                 width={248}
                 height={222}
@@ -152,10 +181,10 @@ const Discover = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-        <div className="lg:flex hidden justify-center mt-14">
+        <div className="lg:flex hidden justify-center pb-12 mt-14">
           <PrimaryButton name="More NFTs" w="179" h="66" text="20" reverse />
         </div>
         <div className="flex lg:hidden justify-center mt-8">

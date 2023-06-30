@@ -1,18 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-const NumberCountAnimation = ({ targetCount, duration }) => {
+const NumberCountAnimation = ({ targetCount, duration, kk }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     const increment = Math.ceil(targetCount / (duration / 1000));
     const intervalDuration = duration / targetCount;
 
+    if (kk) {
+      console.log(intervalDuration);
+    }
+
     if (targetCount <= 0) {
       return;
     }
 
     const timer = setInterval(() => {
-      setCount(prevCount => {
+      setCount((prevCount) => {
         const newCount = prevCount + 1;
         if (newCount >= targetCount) {
           clearInterval(timer);
@@ -30,4 +34,4 @@ const NumberCountAnimation = ({ targetCount, duration }) => {
   return <span>{count}</span>;
 };
 
-export default NumberCountAnimation
+export default NumberCountAnimation;

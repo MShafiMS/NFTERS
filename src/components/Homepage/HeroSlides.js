@@ -2,6 +2,7 @@ import man from "@/assets/man.png";
 import slide1 from "@/assets/slide1.png";
 import slide2 from "@/assets/slide2.png";
 import slide3 from "@/assets/slide3.png";
+import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useState } from "react";
@@ -48,7 +49,19 @@ const HeroSlides = () => {
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>
-            <div className="rounded-[24px] relative lg:w-[400px] w-72">
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              viewport={{ once: true }}
+              whileInView={{
+                x: 0,
+                opacity: 100,
+                transition: {
+                  duration: 0.9,
+                  delay: Math.max(0, 0.1 + (idx * 4) / 10),
+                },
+              }}
+              className="rounded-[24px] relative lg:w-[400px] w-72"
+            >
               <Image
                 src={slide.img}
                 width={400}
@@ -87,7 +100,7 @@ const HeroSlides = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </SwiperSlide>
         ))}
       </Swiper>

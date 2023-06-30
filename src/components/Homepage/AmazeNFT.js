@@ -1,15 +1,34 @@
 import { integral_cf } from "@/utils/LocalFonts";
+import { motion } from "framer-motion";
 
 const AmazeNFT = () => {
   return (
     <div className="lg:py-32 py-16 bg-[#D9E0EC]/20">
       <div className="flex md:flex-row flex-col items-center gap-10 lg:justify-between container mx-auto">
-        <h1 className={`${integral_cf.className} font-bold text-center lg:text-start text-2xl lg:text-3xl tracking-wider`}>
+        <motion.h1
+          initial={{ x: -100, opacity: 0 }}
+          viewport={{ once: true }}
+          whileInView={{
+            x: 0,
+            opacity: 100,
+            transition: { duration: 0.9, delay: 0.1 },
+          }}
+          className={`${integral_cf.className} font-bold text-center lg:text-start text-2xl lg:text-3xl tracking-wider`}
+        >
           The amazing NFT art <br />
           of the world here
-        </h1>
+        </motion.h1>
         <div className="flex lg:flex-row flex-col gap-6 lg:gap-14">
-          <div className="flex gap-3.5">
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            viewport={{ once: true }}
+            whileInView={{
+              x: 0,
+              opacity: 100,
+              transition: { duration: 0.9, delay: 0.1 },
+            }}
+            className="flex gap-3.5"
+          >
             <svg
               width="36"
               height="36"
@@ -45,8 +64,17 @@ const AmazeNFT = () => {
                 etiam viverra tellus imperdiet.
               </p>
             </div>
-          </div>
-          <div className="flex gap-3.5">
+          </motion.div>
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            viewport={{ once: true }}
+            whileInView={{
+              x: 0,
+              opacity: 100,
+              transition: { duration: 1.1, delay: 0.3 },
+            }}
+            className="flex gap-3.5"
+          >
             <svg
               width="36"
               height="36"
@@ -79,7 +107,7 @@ const AmazeNFT = () => {
                 etiam viverra tellus
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
